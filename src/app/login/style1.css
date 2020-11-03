@@ -1,0 +1,17 @@
+
+nb-card {
+    margin: 20;
+    padding: 20;
+    height: calc(100vh - 2 * 2.5rem);
+  }
+  .forgotPassword {
+    text-align: center;
+    margin: -12px 0 15px 0;
+    float: left;
+    width: 100%;
+  }
+  .formGroup {
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+  }

@@ -1,0 +1,235 @@
+<div class="card-row">
+  <div class="card-col">
+    <nb-card>
+      <nb-card-header>Task Page</nb-card-header>
+      <nb-card-body class="example-items-col">
+        <div>
+          <button class="example-button-row" mat-raised-button color="primary" (click)="open(dialog)">ADD Task..</button>
+          <button class="example-button-row" mat-raised-button color="primary" (click)="open1(dialog1)" >Assign other user..</button>
+        </div>
+        <br>
+        <br>
+        <div>
+
+          <table>
+
+            <tr class="example-box">
+              <th>TASK</th>
+              <th>STATUS</th>
+              <th>Due Date</th>
+              <th>Assign By..</th>
+              <ng-template [ngIf]="mainuse == 'manage'">
+                <th>
+                  Manage
+                </th>
+              </ng-template>
+            </tr>
+
+            <tr>
+              <div class="example-list" cdkDropList #doneList="cdkDropList" [cdkDropListData]="pageslice"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of todo;let indexofele=index" cdkDrag>
+                  <td>
+                    {{item.id.label}}
+                  </td>
+                  <td>
+                    {{item.id.St}}
+                  </td>
+                  <td>
+                    {{item.id.date | date:'MM/dd/yyyy'}}
+                  </td>
+                  <td>
+                    {{item.id.assign}}
+                  </td>
+                  <ng-template [ngIf]="mainuse == 'manage'">
+                    <td>
+                      <button mat-raised-button color="primary"
+                        (click)="currentEdit = indexofele;pik.value = item.date;newtask.value = item.label;state.value = item.St;deletestoredata()">Edit</button>
+                    </td>
+                  </ng-template>
+
+                </div>
+              </div>
+
+
+            </tr>
+          </table>
+
+          <!-- <mat-paginator [length]= "this.todo.length"
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 15,20,this.todo.length]"
+                     (page)="onpagechange($event)">
+                    
+      
+      </mat-paginator>-->
+          <br>
+          <div class="search-results" infiniteScroll (scrolled)="onscroll()">
+
+          </div>
+          <!-- <button mat-raised-button color='primary' (click)='onscroll()'>view more</button> -->
+
+        </div>
+
+
+        <br>
+        <br>
+
+        <button mat-raised-button color="primary" class="nav-item nav-link" routerLink="/login">Logout</button>
+      </nb-card-body>
+    </nb-card>
+
+  </div>
+</div>
+
+<!-- <h1>Home Page</h1>
+
+
+<table class=".tp-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class=".tp-full-width">
+        <mat-label>Add task..</mat-label>
+        <input type="text" matInput #newtask>
+      </mat-form-field>
+    </td>
+    <td>
+      <form class="tp-form">
+        <mat-form-field class="tp-full-width">
+          <input type="text" #state placeholder="Select state.." aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.St">
+              {{option.St}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </td>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose due a date</mat-label>
+        <input #pik matInput [min]="minDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </td>
+
+    <td>
+      <button class="example-button-row" mat-raised-button color="primary"
+        (click)="addOrEditTask(newtask.value,state.value,pik.value);storedata();pik.value=''; newtask.value='';state.value=''">
+        <ng-container *ngIf="currentEdit != null">Edit</ng-container>
+        <ng-container *ngIf="currentEdit == null">Add</ng-container>
+
+      </button>
+    </td>
+
+
+    <td>
+      <button class="example-button-row" mat-raised-button color="warn"
+        (click)="pik.value='';newtask.value='';state.value='';currentEdit = null">Cancel</button>
+
+
+    </td>
+
+  </tr>
+</table> -->
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>User task</nb-card-header>
+    <nb-card-body>
+      <form>
+        <div>
+          
+          <div>
+            <input type="text" class="label" nbInput shape="semi-round" placeholder="Add Task.." #newtask>
+          </div>
+          <div>
+            <input type="email" [formControl]="myControl" [nbAutocomplete]="autoControl" class="label" nbInput
+              shape="semi-round" placeholder="Select States..." #state>
+            <nb-autocomplete #autoControl>
+
+              <nb-option *ngFor="let option of filteredOptions | async" [value]="option.St">
+                {{ option.St }}
+              </nb-option>
+
+            </nb-autocomplete>
+          </div>
+          <div>
+            <input placeholder="Choose due a date" class="label" #pik nbInput shape="semi-round" [min]="minDate"
+              [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          <div>
+            <button class="example-button-row" mat-raised-button color="primary"
+              (click)="addOrEditTask(newtask.value,state.value,pik.value);storedata();pik.value=''; newtask.value='';state.value=''">
+              <ng-container *ngIf="currentEdit != null">Edit</ng-container>
+              <ng-container *ngIf="currentEdit == null">Add</ng-container>
+            </button>
+            <button class="example-button-row" mat-raised-button color="warn"
+              (click)="pik.value='';newtask.value='';state.value='';currentEdit = null">Clear</button>
+          </div>
+
+
+
+        </div>
+
+
+      </form>
+    </nb-card-body>
+    <nb-card-footer>
+      <button mat-raised-button color="warn" (click)="ref.close()">Close</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+<ng-template #dialog1 let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Assign Task</nb-card-header>
+    <nb-card-body>
+      <form>
+        <div>
+          <div>
+            <input type="number" class="label" nbInput shape="semi-round" placeholder="userId.." #user>
+          </div>
+          <div>
+            <input type="text" class="label" nbInput shape="semi-round" placeholder="Add Task.." #newtask>
+          </div>
+          <div>
+            <input type="email" [formControl]="myControl" [nbAutocomplete]="autoControl" class="label" nbInput
+              shape="semi-round" placeholder="Select States..." #state>
+            <nb-autocomplete #autoControl>
+
+              <nb-option *ngFor="let option of filteredOptions | async" [value]="option.St">
+                {{ option.St }}
+              </nb-option>
+
+            </nb-autocomplete>
+          </div>
+          <div>
+            <input placeholder="Choose due a date" class="label" #pik nbInput shape="semi-round" [min]="minDate"
+              [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          <div>
+            <button class="example-button-row" mat-raised-button color="primary"
+              (click)="getass(newtask.value,state.value,pik.value,user.value);pik.value=''; newtask.value='';state.value=''">
+              <ng-container *ngIf="currentEdit != null">Edit</ng-container>
+              <ng-container *ngIf="currentEdit == null">Add</ng-container>
+            </button>
+            <button class="example-button-row" mat-raised-button color="warn"
+              (click)="pik.value='';newtask.value='';state.value='';currentEdit = null">Clear</button>
+          </div>
+
+
+
+        </div>
+
+
+      </form>
+    </nb-card-body>
+    <nb-card-footer>
+      <button mat-raised-button color="warn" (click)="ref.close()">Close</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

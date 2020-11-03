@@ -1,0 +1,63 @@
+.button 
+{
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: 1px solid #e1e4e8;
+  }
+
+.card-row {
+    display: flex;
+    margin: 0 -0.5rem;
+    align-items: center;
+  }
+
+.card-col {
+    flex: 1 0 calc(50% - 1rem);
+    margin: 0 0.5rem;
+   
+  }
+  $auth-layout-padding: 2.5rem;
+
+  nb-card {
+    margin: 20;
+    padding: 20;
+    height: calc(100vh - 2 * 2.5rem);
+    align-content: center;;
+  }
+  @import '../../../@theme/styles/themes';
+
+  @include nb-install-component() {
+      .row {
+        margin: -0.5rem;
+      }
+  
+      div[class^=col-] {
+        padding: 0.5rem;
+        box-sizing: border-box;
+  
+        div {
+          text-align: center;
+          background-color: nb-theme(background-basic-color-2);
+          padding: 0.75rem 0.25rem;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  
+    .grid-h {
+      margin-top: 1.5rem;
+  
+      &:first-child {
+        margin-top: 0;
+      }
+      
+    .table-responsive {
+      margin-top: 1rem;
+    }
+  }
+  .formGroup {
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+  }

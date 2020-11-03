@@ -1,0 +1,61 @@
+.tp-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 50%;
+ }
+ .tp-full-width {
+    width: 100%;
+ }
+ .example-card {
+   max-width: 400px;
+ }
+ .example-button-row {
+   display: table-cell;
+   margin-right: 1rem;
+ }
+ .example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  
+}
+.example-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+.example-list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  width: 500px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  color: rgba(18, 110, 172, 0.87);
+}
+
+.example-box {
+  padding: 20px 10px;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+  border-collapse: collapse;
+  
+}
+.label{
+  margin-bottom: 1rem;
+  
+}
+.sty{
+  background: darkseagreen;
+}

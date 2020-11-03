@@ -1,0 +1,53 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <nb-icon icon="menu-2-outline" (click)='toggle()'></nb-icon>
+    <div class="logo">{{title}}</div>
+  </nb-layout-header>
+  <nb-sidebar><mat-menu #menu="matMenu">
+    
+    
+    <a mat-button class="nav-item nav-link" routerLink="/">Login</a><br>
+    <a mat-button class="nav-item nav-link" routerLink="/register">Register</a><br>
+    <a mat-button class="nav-item nav-link" routerLink="/states">Add States</a><br>
+</mat-menu>
+
+    <nb-menu [items]="items">
+    </nb-menu>
+  
+</nb-sidebar>
+  <nb-layout-column>
+
+    
+    <!-- nav
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/">Home</a>
+            <a class="nav-item nav-link" routerLink="/login">Add States</a>
+            <a class="nav-item nav-link" routerLink="/register">Register</a>
+        </div>
+    </nav>-->
+    
+    
+    <br>
+    <br>
+    
+    
+    <!-- main content container -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+  <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>

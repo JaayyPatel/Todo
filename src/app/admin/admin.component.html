@@ -1,0 +1,29 @@
+<h1> Admin Page</h1>
+
+<table>
+    <th>
+        Users
+    </th>
+    <tr *ngFor="let list of userinfo;let indexofele=index">
+        <td>
+            {{list.Name}}
+        </td>
+        <td>
+            <ng-template [ngIf]="checkadmin == 'admin' || checkadmin == 'manage' ">
+            <button mat-raised-button color="primary" (click)="currentuser = indexofele;showdetails()">details</button>
+        </ng-template>
+        <button mat-raised-button color="primary" (click)="currentuser = indexofele;showdetails()">Assign task</button>
+        </td>
+        <ng-template [ngIf]="checkadmin == 'admin'">
+        <td>
+            <button mat-raised-button color="warn" (click)="this.userinfo.splice(indexofele,1);deleteuser()">Remove</button>
+        </td>
+        </ng-template>
+    </tr>
+
+</table>
+<br>
+<br>
+<br>
+<button mat-raised-button  class="nav-item nav-link" routerLink="/login">Logout</button>
+

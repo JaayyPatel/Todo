@@ -1,0 +1,18 @@
+.card-row {
+    display: flex;
+    margin: 0 -0.5rem;
+    align-items: center;
+  }
+
+.card-col {
+    flex: 1 0 calc(50% - 1rem);
+    margin: 0 0.5rem;
+   
+  }
+  $auth-layout-padding: 2.5rem;
+
+  nb-card {
+    margin: 20;
+    padding: 20;
+    height: calc(100vh - 2 * 2.5rem);
+  }

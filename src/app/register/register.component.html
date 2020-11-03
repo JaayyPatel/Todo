@@ -1,0 +1,53 @@
+
+
+
+   <div class="card-row">
+      <div class="card-col">
+      <nb-card>
+        <nb-card-header>Registration Page</nb-card-header>
+        <nb-card-body class="example-items-col">
+          <form>
+            <div>
+              <label  class="label">Name :</label><br>
+              <input type="text" nbInput  shape="semi-round"  placeholder="Ex. abc" #name>
+            </div>
+            <div>
+               <label  class="label">Email :</label><br>
+               <input type="email" nbInput  shape="semi-round"  placeholder="Ex. abc@gmail.com" #email>
+             </div>
+             <div>
+               <label  class="label">Username :</label><br>
+               <input type="text" nbInput  shape="semi-round"  placeholder="Ex. abc12" #username>
+             </div>
+            
+            <div class="form-group">
+              <label  class="label">Password</label><br>
+              <input type="password" nbInput  shape="semi-round" placeholder="1234.." #password>
+            </div>
+            <br>
+            
+            <div  class="form-group">
+              <label  class="label">phone number</label><br>
+              <input type="text" nbInput  shape="semi-round" placeholder="1234.." #num>
+            </div>
+            <div>
+              <button mat-raised-button color="primary" class="button" (click)="add(name.value,email.value,username.value,password.value);name.value='';email.value='';username.value='';password.value=''">
+                Submit</button>
+            </div>
+            <!-- <button mat-raised-button color="primary" (click)="authService.SignUp(email.value,password.value);add(name.value,email.value,username.value,password.value);name.value='';email.value='';username.value='';password.value=''">
+               Submit</button>
+               <div> -->
+                 <!-- <div>
+                <button mat-raised-button color="primary" class="button" (click)="phone(num.value);num.value=''">verify</button>
+              </div>
+              <div id="recaptcha-container">
+
+              </div>
+             -->
+          </form>
+        </nb-card-body>
+      </nb-card>
+      
+      </div>
+    </div>
+    

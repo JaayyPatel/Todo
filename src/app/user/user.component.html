@@ -1,0 +1,27 @@
+<h1>User's Task</h1>
+
+<table>
+  <th>
+  task
+</th>
+<th>
+  state
+</th>
+<th>
+  due date
+</th>
+<tr *ngFor ="let list of usertask;let indexofele=index">
+  <td>
+    {{list.label}}
+  </td>
+  <td>
+    {{list.St}}
+  </td>
+  <td>
+    {{list.date | date:'MM/dd/yyyy'}}
+  </td>
+  
+</tr>
+</table>
+<br>
+<button mat-raised-button color="primary" (click)="back()">back</button>

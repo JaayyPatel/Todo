@@ -1,0 +1,17 @@
+<h1>Add States</h1>
+<table>
+  <tr *ngFor='let list of States;let indexofele=index'>
+    <td>
+      <button mat-raised-button color="primary" (click)="addstate(list.St);storestates()">Add</button>
+    </td>
+    <td>
+      {{States[indexofele].St}}
+    </td>
+    <!--
+  </tr>
+  <tr *ngFor='let states of current'>
+    <td>
+      {{states.St}}
+    </td>
+  </tr>-->
+</table>
